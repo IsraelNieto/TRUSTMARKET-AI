@@ -1,0 +1,2 @@
+# TRUSTMARKET-AI
+Hackathon 🚀
