@@ -1,104 +1,200 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRUSTMARKET AI - Transformando el E-commerce Sostenible en LatAm con IA</title>
-  <meta name="description" content="Conectamos a consumidores conscientes con productores éticos, usando inteligencia artificial para un futuro más verde y justo.">
-  <!-- Estilos base -->
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Estilos n8n Chat -->
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRUSTMARKET AI - Transformando el E-commerce Sostenible en LatAm con IA</title>
+    <meta
+      name="description"
+      content="Conectamos a consumidores conscientes con productores éticos, usando inteligencia artificial para un futuro más verde y justo."
+    />
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <!-- Estilos n8n Chat -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <!-- <header class="header">
+      <div class="logo">
+        <a href="/">
+          <img src="/assets/images/logo-horizontal-light-mode.svg" alt="Logo de TRUSTMARKET AI" />
+        </a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+          <li><a href="#soluciones">Soluciones</a></li>
+          <li><a href="#vendedores">Para Vendedores</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="cta-buttons">
+        <a href="#registro" class="btn btn-primary">Regístrate</a>
+        <a href="#productos" class="btn btn-secondary">Explora Productos</a>
+      </div>
+    </header> -->
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">
-      <img src="logo-ecosoften.png" alt="Logo de TRUSTMARKET AI">
-      <span class="logo-text">TRUSTMARKET AI</span>
-    </div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
-        <li><a href="#soluciones">Soluciones</a></li>
-        <li><a href="#vendedores">Para Vendedores</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+    <!-- ? navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <a href="/">
+            <img src="/assets/images/logo-horizontal-light-mode.svg" alt="Logo de TRUSTMARKET AI" />
+          </a>
+        </div>
+
+        <div class="navbar-menu" id="navbar-menu">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="#inicio" class="navbar-link">Inicio</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#quienes-somos" class="navbar-link">¿Quiénes somos?</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#soluciones" class="navbar-link">Soluciones</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#vendedores" class="navbar-link">Para Vendedores</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#contacto" class="navbar-link">Contacto</a>
+            </li>
+          </ul>
+
+          <div class="navbar-buttons-mobile">
+            <a href="#registro" class="navbar-btn navbar-btn-primary">Regístrate</a>
+            <a href="#productos" class="navbar-btn navbar-btn-secondary">Explora Productos</a>
+          </div>
+        </div>
+
+        <div class="navbar-buttons">
+          <a href="#registro" class="navbar-btn navbar-btn-primary">Regístrate</a>
+          <a href="#productos" class="navbar-btn navbar-btn-secondary">Explora Productos</a>
+        </div>
+
+        <div class="navbar-toggle" id="navbar-toggle">
+          <span class="navbar-bar"></span>
+          <span class="navbar-bar"></span>
+          <span class="navbar-bar"></span>
+        </div>
+      </div>
     </nav>
-    <div class="cta-buttons">
-      <a href="#registro" class="btn btn-primary">Regístrate</a>
-      <a href="#productos" class="btn btn-secondary">Explora Productos</a>
-    </div>
-  </header>
+    <!-- ? navbar -->
 
-  <!-- HERO -->
-  <main class="hero" id="inicio">
-    <div class="hero-content">
-      <h1>Transformando el E-commerce Sostenible en LatAm con IA</h1>
-      <p>Conectamos a consumidores conscientes con productores éticos, usando inteligencia artificial para un futuro más verde y justo.</p>
-      <div class="hero-cta">
-        <a href="#productos" class="btn btn-hero">Comienza a Comprar</a>
+    <!-- HERO -->
+    <main class="hero" id="inicio">
+      <div class="hero-content">
+        <div>
+          <h1>Transformando el E-commerce Sostenible en LatAm con IA</h1>
+          <p>Conectamos a consumidores conscientes con productores éticos, usando inteligencia artificial para un futuro más verde y justo.</p>
+          <div class="hero-cta">
+            <!-- <a href="#productos" class="btn btn-hero">Comienza a Comprar</a> -->
+            <button class="cta">
+              <span>Ver Productos</span>
+              <svg width="15px" height="10px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
+      <img src="/assets/images/hero-hand-image.png" alt="trust market ai logo" class="hero-image" />
+    </main>
 
-  <!-- FEATURES -->
-  <section class="features" id="soluciones">
-    <h2>Nuestras Características Clave</h2>
-    <div class="feature-grid">
-      <div class="feature-item">
-        <img src="icon-ia.png" alt="Icono de IA">
-        <h3>IA para la Sostenibilidad</h3>
-        <p>Optimizamos rutas y minimizamos el desperdicio usando algoritmos inteligentes.</p>
+    <!-- FEATURES -->
+    <section class="features" id="soluciones">
+      <h2>Nuestras Características Clave</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <img src="/assets/images/clave-sustentabilidad.jpg" alt="Icono de IA" />
+          <h3>IA para la Sostenibilidad</h3>
+          <p>Optimizamos rutas y minimizamos el desperdicio usando algoritmos inteligentes.</p>
+        </div>
+        <div class="feature-item">
+          <img src="/assets/images/clave-verificacion.jpg" alt="Icono de Verificado" />
+          <h3>Productos Verificados</h3>
+          <p>Garantizamos la autenticidad y los certificados ecológicos de cada producto.</p>
+        </div>
+        <div class="feature-item">
+          <img src="/assets/images/clave-productores.jpg" alt="Icono de Local" />
+          <h3>Apoyo a Productores Locales</h3>
+          <p>Conectamos compradores con artesanos y pequeños negocios sostenibles.</p>
+        </div>
       </div>
-      <div class="feature-item">
-        <img src="icon-verified.png" alt="Icono de Verificado">
-        <h3>Productos Verificados</h3>
-        <p>Garantizamos la autenticidad y los certificados ecológicos de cada producto.</p>
-      </div>
-      <div class="feature-item">
-        <img src="icon-local.png" alt="Icono de Local">
-        <h3>Apoyo a Productores Locales</h3>
-        <p>Conectamos compradores con artesanos y pequeños negocios sostenibles.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="footer" id="contacto">
-    <p>&copy; 2025 TRUSTMARKET AI. Todos los derechos reservados.</p>
-    <p>¿Tienes preguntas? ¡Habla con nuestro asistente virtual! 👉</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="footer" id="contacto">
+      <p>&copy; 2025 TRUSTMARKET AI. Todos los derechos reservados.</p>
+      <p>¿Tienes preguntas? ¡Habla con nuestro asistente virtual! 👉</p>
+    </footer>
 
-  <!-- Chat de n8n -->
-  <div id="n8n-chat"></div>
+    <!-- Chat de n8n -->
+    <div id="n8n-chat"></div>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-    createChat({
-      webhookUrl: 'https://israelnr.app.n8n.cloud/webhook/d02dff26-3e87-4802-8861-244e2e97a406/chat',
-      target: '#n8n-chat',
-      mode: 'window',
-      loadPreviousSession: true,
-      defaultLanguage: 'es',
-      initialMessages: [
-        '🌱 ¡Hola! Soy EcoBot 👋, tu asistente de TRUSTMARKET AI.',
-        '✨ Puedo ayudarte a encontrar productos ecológicos, vendedores éticos y resolver tus dudas.',
-        '¿En qué puedo asistirte hoy?'
-      ],
-      i18n: {
-        es: {
-          title: 'EcoBot - Asistente Virtual',
-          subtitle: 'Estamos disponibles 24/7 para ayudarte',
-          getStarted: 'Nueva conversación',
-          inputPlaceholder: 'Escribe tu mensaje...'
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+      createChat({
+        webhookUrl: 'https://israelnr.app.n8n.cloud/webhook/d02dff26-3e87-4802-8861-244e2e97a406/chat',
+        target: '#n8n-chat',
+        mode: 'window',
+        loadPreviousSession: true,
+        defaultLanguage: 'es',
+        initialMessages: [
+          '🌱 ¡Hola! Soy EcoBot 👋, tu asistente de TRUSTMARKET AI.',
+          '✨ Puedo ayudarte a encontrar productos ecológicos, vendedores éticos y resolver tus dudas.',
+          '¿En qué puedo asistirte hoy?',
+        ],
+        i18n: {
+          es: {
+            title: 'EcoBot - Asistente Virtual',
+            subtitle: 'Estamos disponibles 24/7 para ayudarte',
+            getStarted: 'Nueva conversación',
+            inputPlaceholder: 'Escribe tu mensaje...',
+          },
+        },
+      });
+    </script>
+
+    <!-- JavaScript para el nuevo navbar -->
+    <script>
+      const navbarToggle = document.getElementById('navbar-toggle');
+      const navbarMenu = document.getElementById('navbar-menu');
+
+      navbarToggle.addEventListener('click', () => {
+        navbarToggle.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
+      });
+
+      // Cerrar el menú cuando se hace clic en un enlace
+      document.querySelectorAll('.navbar-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          navbarToggle.classList.remove('active');
+          navbarMenu.classList.remove('active');
+        });
+      });
+
+      // Cerrar el menú cuando se hace clic en los botones móviles
+      document.querySelectorAll('.navbar-buttons-mobile .navbar-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          navbarToggle.classList.remove('active');
+          navbarMenu.classList.remove('active');
+        });
+      });
+
+      // Cerrar el menú cuando se hace clic fuera de él
+      document.addEventListener('click', (e) => {
+        if (!navbarToggle.contains(e.target) && !navbarMenu.contains(e.target)) {
+          navbarToggle.classList.remove('active');
+          navbarMenu.classList.remove('active');
         }
-      }
-    });
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
