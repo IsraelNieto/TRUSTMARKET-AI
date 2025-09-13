@@ -1,6 +1,6 @@
 :root {
-  --mainColor: white;
-  --secondaryColor: white;
+  --mainColor: #4caf50;
+  --secondaryColor: rgb(169, 216, 196);
   --whiteColor: #2c7a7b;
   --blackColor: #212529;
 }
