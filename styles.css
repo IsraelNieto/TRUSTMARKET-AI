@@ -1,7 +1,7 @@
 :root {
-  --mainColor: #4caf50;
-  --secondaryColor: #254d32;
-  --whiteColor: #fefefe;
+  --mainColor: white;
+  --secondaryColor: white;
+  --whiteColor: #2c7a7b;
   --blackColor: #212529;
 }
 
@@ -157,7 +157,7 @@ body {
 
 .navbar-link {
   text-decoration: none;
-  color: #555;
+  color: white;
   font-weight: 400;
   transition: color 0.3s;
 }
