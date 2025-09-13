@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorar Productos - TRUSTMARKET AI</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c7a7b;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+      flex: 1;
+      text-align: center;
+    }
+
+    .back-btn {
+      padding: 8px 12px;
+      background-color: #fff;
+      color: #2c7a7b;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #256c6e;
+      color: #fff;
+    }
+
+    main {
+      padding: 30px;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: box-shadow 0.3s;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      box-shadow: 0 0 5px #2c7a7b;
+    }
+
+    .search-bar button {
+      padding: 12px 20px;
+      background-color: #2c7a7b;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-bar button:hover {
+      background-color: #256c6e;
+    }
+
+    .category-title {
+      font-size: 20px;
+      color: #2c7a7b;
+      margin: 40px 0 20px;
+      border-bottom: 2px solid #2c7a7b;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+      color: #2c7a7b;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .product-card button {
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #2c7a7b;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .product-card button:hover {
+      background-color: #256c6e;
+    }
+
+    /* Carrito */
+    .cart {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 20px;
+    }
+
+    .cart h2 {
+      margin-top: 0;
+      color: #2c7a7b;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      align-items: center;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-total {
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    .checkout-btn {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background-color: #2c7a7b;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background-color: #256c6e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/"><img src="logo.jpg" alt="Logo de TRUSTMARKET AI" /></a>
+    <h1>Explorar Productos - TRUSTMARKET AI </h1>
+    <a href="index.html" class="back-btn">← Volver al Inicio</a>
+  </header>
+
+  <main>
+    <!-- Barra de búsqueda -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar productos..." />
+      <button onclick="searchProducts()">Buscar</button>
+    </div>
+
+    <!-- Categorías -->
+    <div class="category-title">Frutas y Verduras</div>
+    <div class="products-grid" id="frutasVerduras"></div>
+
+    <div class="category-title">Productos Orgánicos</div>
+    <div class="products-grid" id="organicos"></div>
+
+    <!-- Carrito -->
+    <div class="cart" id="cart">
+      <h2>Carrito de Compras</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total" id="cartTotal"></div>
+      <button class="checkout-btn" onclick="checkout()">Proceder al Checkout</button>
+    </div>
+  </main>
+
+  <script>
+    // Lista de productos con categoría
+    const products = [
+      { nombre: "Jitomate de Oaxaca", precio: 19.50, img: "assets/images/jitomate.jpg", categoria: "frutasVerduras" },
+      { nombre: "Aguacate de Veracruz", precio: 50, img: "assets/images/aguacate.jpg", categoria: "frutasVerduras" },
+      { nombre: "Fresas", precio: 35, img: "assets/images/fresas.jpg", categoria: "frutasVerduras" },
+      { nombre: "Manzanas", precio: 35, img: "assets/images/manzanas.jpg", categoria: "frutasVerduras" },
+      { nombre: "Espinacas", precio: 120, img: "assets/images/espinacas.jpg", categoria: "frutasVerduras" },
+      { nombre: "Miel Orgánica", precio: 120, img: "assets/images/miel.jpg", categoria: "organicos" },
+      { nombre: "Leche de Almendra", precio: 75, img: "assets/images/leche-almendra.jpg", categoria: "organicos" },
+      { nombre: "Café Orgánico", precio: 150, img: "assets/images/cafe.jpg", categoria: "organicos" }
+    
+    ];
+
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartTotalDiv = document.getElementById('cartTotal');
+
+    // Cargar carrito desde localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Mostrar productos por categoría
+    function displayProducts() {
+      const frutasVerdurasDiv = document.getElementById('frutasVerduras');
+      const organicosDiv = document.getElementById('organicos');
+      frutasVerdurasDiv.innerHTML = '';
+      organicosDiv.innerHTML = '';
+
+      products.forEach(p => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+          <img src="${p.img}" alt="${p.nombre}" />
+          <h3>${p.nombre}</h3>
+          <p>$${p.precio.toFixed(2)}</p>
+          <button onclick="addToCart('${p.nombre}', ${p.precio})">Agregar al carrito</button>
+        `;
+        if(p.categoria === "frutasVerduras"){
+          frutasVerdurasDiv.appendChild(card);
+        } else {
+          organicosDiv.appendChild(card);
+        }
+      });
+    }
+
+    // Función búsqueda
+    function searchProducts() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(p => p.nombre.toLowerCase().includes(input));
+      if(filtered.length === 0){
+        alert("No se encontraron productos.");
+      } else {
+        filtered.forEach(p => {
+          const div = document.getElementById(p.categoria);
+          div.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    }
+
+    // Agregar producto al carrito
+    function addToCart(nombre, precio) {
+      cart.push({ nombre, precio });
+      saveCart();
+      updateCart();
+    }
+
+    // Eliminar producto del carrito
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      saveCart();
+      updateCart();
+    }
+
+    // Actualizar carrito
+    function updateCart() {
+      cartItemsDiv.innerHTML = '';
+      if(cart.length === 0){
+        cartItemsDiv.innerHTML = '<p>No hay productos en el carrito.</p>';
+        cartTotalDiv.textContent = '';
+        return;
+      }
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.precio;
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <span>${item.nombre}</span>
+          <span>$${item.precio.toFixed(2)}</span>
+          <button onclick="removeFromCart(${index})">✖</button>
+        `;
+        cartItemsDiv.appendChild(div);
+      });
+      cartTotalDiv.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Guardar carrito en localStorage
+    function saveCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Checkout
+    function checkout() {
+      if(cart.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+      }
+      alert("Gracias por tu compra. Total: $" + cart.reduce((acc, item) => acc + item.precio, 0).toFixed(2));
+      cart = [];
+      saveCart();
+      updateCart();
+    }
+
+    // Inicializar
+    displayProducts();
+    updateCart();
+  </script>
+</body>
+</html>

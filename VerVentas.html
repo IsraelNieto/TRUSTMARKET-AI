@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Ventas - TRUSTMARKET AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color:#f0f4f5; margin:0; padding:0; display:flex; flex-direction:column; align-items:center;}
+    header { width:100%; background-color:#2c7a7b; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; color:#fff;}
+    header img { width:120px; height:auto;}
+    main { width:100%; max-width:600px; margin-top:40px;}
+    table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden;}
+    th, td { padding:12px; border-bottom:1px solid #ccc; text-align:left;}
+    th { background:#2c7a7b; color:#fff;}
+    .back-btn { padding:8px 12px; background:#fff; color:#2c7a7b; border-radius:8px; text-decoration:none; font-weight:bold; margin-bottom:20px;}
+    .back-btn:hover { background:#256c6e; color:#fff;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><img src="logo.jpg" alt="Logo de TRUSTMARKET AI" /></a>
+    <h1>Productos Registrados</h1>
+    <a href="index.html" class="back-btn">← Volver</a>
+  </header>
+
+  <main>
+    <table id="productsTable">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Categoría</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const tbody = document.querySelector('#productsTable tbody');
+
+    products.forEach(product => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${product.productName}</td>
+        <td>${product.productPrice}</td>
+        <td>${product.productCategory}</td>
+        <td>${product.productDescription}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - TRUSTMARKET AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: #2c7a7b;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+    }
+
+    header h1 {
+      margin: 0;
+      flex: 1;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .back-btn {
+      padding: 8px 12px;
+      background-color: #fff;
+      color: #2c7a7b;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #256c6e;
+      color: #fff;
+    }
+
+    main {
+      width: 100%;
+      max-width: 450px;
+      background-color: #fff;
+      margin-top: 40px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    main h2 {
+      text-align: center;
+      color: #2c7a7b;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #2c7a7b;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: box-shadow 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 5px #2c7a7b;
+    }
+
+    .submit-btn {
+      padding: 12px;
+      background-color: #2c7a7b;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #256c6e;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/"><img src="logo.jpg" alt="Logo de TRUSTMARKET AI" /></a>
+    <h1>Registro TRUSTMARKET AI </h1>
+    <a href="index.html" class="back-btn">← Volver al Inicio</a>
+  </header>
+
+  <main>
+    <h2>Crea tu cuenta</h2>
+    <form id="registrationForm">
+      <div>
+        <label for="fullName">Nombre Completo</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Juan Pérez" required>
+      </div>
+      <div>
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+      </div>
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+      </div>
+      <div>
+        <label for="role">Selecciona tu rol</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Elige una opción</option>
+          <option value="cliente">Cliente</option>
+          <option value="vendedor">Vendedor / PyME</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Registrar</button>
+    </form>
+    <p class="note">Al registrarte aceptas nuestros términos y condiciones.</p>
+  </main>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+
+    // Cargar usuarios existentes desde localStorage
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const fullName = form.fullName.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      const role = form.role.value;
+
+      if (!fullName || !email || !password || !role) {
+        alert("Por favor completa todos los campos.");
+        return;
+      }
+
+      // Verificar si el correo ya existe
+      const exists = users.some(user => user.email === email);
+      if (exists) {
+        alert("Este correo ya está registrado.");
+        return;
+      }
+
+      // Guardar nuevo usuario en localStorage
+      users.push({ fullName, email, password, role });
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert(`Registro exitoso!\nNombre: ${fullName}\nCorreo: ${email}\nRol: ${role}`);
+
+      // Redirigir automáticamente al index.html
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body>
+</html>
